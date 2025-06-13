@@ -1,4 +1,4 @@
-# Setup
+# Slack Bot Development with BigQuery Vector Search
 
 ## install gcloud
 
@@ -63,6 +63,19 @@ In this case, we will set `APP_ENVIRONMENT` to `dev`.
 
 ```bash
 export APP_ENVIRONMENT=dev
+```
+
+## Install dependencies
+
+```bash
+cd docker
+pip install -r requirements.txt
+```
+
+## Run Slack app locally
+
+```bash
+python app.py
 ```
 
 ## Run Slack app on Google Cloud
