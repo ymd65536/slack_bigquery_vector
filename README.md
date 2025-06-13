@@ -52,8 +52,8 @@ export PROJECT_ID=`gcloud config list --format 'value(core.project)'` && echo $P
 To run the Slack app, you need to set the following environment variables with your Slack app credentials. You can create a Slack app and obtain these tokens from the [Slack API: Applications](https://api.slack.com/apps) page.
 
 ```bash
-export SLACK_BOT_TOKEN=
 export SLACK_APP_TOKEN=
+export SLACK_BOT_TOKEN=
 export SLACK_SIGNING_SECRET=
 ```
 
@@ -71,6 +71,10 @@ Create `WebPageSummarizer` app on Slack.
    - `app_mentions:read`
    - `chat:write`
    - `im:read`
+   - `channels:history`
+   - `groups:history`
+   - `im:history`
+   - `mpim:history`
 
 ## Set App Environment Variable
 
