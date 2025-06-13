@@ -49,11 +49,28 @@ export PROJECT_ID=`gcloud config list --format 'value(core.project)'` && echo $P
 
 ## Set SlackApp Token
 
+To run the Slack app, you need to set the following environment variables with your Slack app credentials. You can create a Slack app and obtain these tokens from the [Slack API: Applications](https://api.slack.com/apps) page.
+
 ```bash
 export SLACK_BOT_TOKEN=
 export SLACK_APP_TOKEN=
 export SLACK_SIGNING_SECRET=
 ```
+
+### Create a Slack app
+
+Create `WebPageSummarizer` app on Slack.
+
+1. Go to the [Slack API: Applications](https://api.slack.com/apps) page.
+2. Click on "Create New App".
+3. Choose "From scratch".
+4. Enter the app name `WebPageSummarizer` and select your workspace.
+5. Click "Create App".
+6. In the "Basic Information" section, you will find the `Signing Secret`. Copy it and set it as the `SLACK_SIGNING_SECRET` environment variable.
+7. In the "OAuth & Permissions" section, scroll down to "Scopes" and add the following bot token scopes:
+   - `app_mentions:read`
+   - `chat:write`
+   - `im:read`
 
 ## Set App Environment Variable
 
