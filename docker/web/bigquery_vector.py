@@ -6,7 +6,7 @@ from langchain_google_vertexai import VertexAIEmbeddings
 
 PROJECT_ID = os.environ.get("PROJECT_ID", None)
 use_embedding_model_name = os.environ.get("USE_MODEL_NAME", None)
-REGION = os.environ.get("REGION", None)
+REGION = os.environ.get("REGION", "asia-northeast1")
 
 
 def get_VertexAIEmbeddings():

@@ -165,8 +165,8 @@ def handle_mention(event, say):
         temperature=0
     )
     vector_store = bigquery_vector.get_bigquery_vector_store(
-        os.environ.get('BIGQUERY_DATASET', None),
-        os.environ.get('BIGQUERY_TABLE', None)
+        os.environ.get('BQ_DATASET', None),
+        os.environ.get('BQ_TABLE', None)
     )
 
     prompt = "".join(texts)
