@@ -101,6 +101,13 @@ export BQ_DATASET=web_page_summarizer
 export BQ_TABLE=web_page_summaries
 ```
 
+Create the BigQuery dataset and table using the following commands:
+
+```bash
+bq --project_id $PROJECT_ID mk --dataset $BQ_DATASET
+bq --project_id $PROJECT_ID mk --table $BQ_DATASET.$BQ_TABLE
+```
+
 ## Install dependencies
 
 ```bash
