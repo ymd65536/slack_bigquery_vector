@@ -75,6 +75,7 @@ Create `WebPageSummarizer` app on Slack.
    - `groups:history`
    - `im:history`
    - `mpim:history`
+8. On Event Subscriptions
 
 ## Set App Environment Variable
 
@@ -84,6 +85,20 @@ In this case, we will set `APP_ENVIRONMENT` to `dev`.
 
 ```bash
 export APP_ENVIRONMENT=dev
+```
+
+```bash
+export USE_MODEL_NAME=text-embedding-005
+export USE_TEXT_MODEL_NAME=gemini-2.0-flash
+```
+
+## Set BigQuery Dataset
+
+To use BigQuery for storing and retrieving web page summaries, you need to set the following environment variables for the BigQuery dataset and table.
+
+```bash
+export BQ_DATASET=web_page_summarizer
+export BQ_TABLE=web_page_summaries
 ```
 
 ## Install dependencies
