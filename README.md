@@ -133,8 +133,8 @@ python app.py
 
 ```text
 @WebPageSummarizer
-Web Page 
-https://iret.media/156179
+What are the new AI-powered tools announced at Google Cloud Next '25?
+https://iret.media/150057
 ```
 
 ## Run Slack app on Google Cloud
