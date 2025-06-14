@@ -76,6 +76,14 @@ Create `WebPageSummarizer` app on Slack.
    - `im:history`
    - `mpim:history`
 8. On Event Subscriptions
+    - Enable "Event Subscriptions".
+    - Set the Request URL to `https://your-domain.com/slack/events` (you will need to set up a server to handle this).
+    - Under "Subscribe to Bot Events", add the following events:
+      - `app_mention`
+      - `message.channels`
+      - `message.groups`
+      - `message.im`
+      - `message.mpim`
 
 ## Set App Environment Variable
 
