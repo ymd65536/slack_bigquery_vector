@@ -121,6 +121,14 @@ pip install -r requirements.txt
 python app.py
 ```
 
+## Prompt for Slack app
+
+```text
+@WebPageSummarizer
+Web Page 
+https://iret.media/156179
+```
+
 ## Run Slack app on Google Cloud
 
 ```bash
