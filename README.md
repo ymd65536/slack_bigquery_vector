@@ -1,5 +1,10 @@
 # Slack Bot Development with BigQuery Vector Search
 
+## Overview
+
+BigQuery has a RAG system using vector search. To see how good this vector search is 
+I decided to build a RAG system with BigQuery using a chat framework called Slack Bolt.
+
 ## install gcloud
 
 First, install gcloud using curl.
@@ -157,3 +162,25 @@ docker rmi asia-northeast1-docker.pkg.dev/$gcp_project/$image_name/$image_name &
 docker build . -t $image_name --platform linux/amd64
 docker tag $image_name asia-northeast1-docker.pkg.dev/$gcp_project/$image_name/$image_name && docker push asia-northeast1-docker.pkg.dev/$gcp_project/$image_name/$image_name:latest
 ```
+
+## Conclusion
+
+This project demonstrates how to build a Slack bot that utilizes BigQuery's vector search capabilities for retrieving and summarizing web page content. By following the steps outlined above, you can set up your own Slack app, configure it to interact with BigQuery, and deploy it to Google Cloud. This setup allows for efficient retrieval of information and provides a foundation for further enhancements and features in your Slack bot.
+
+As the amount of data increases, BigQuery's vector search tends to take more time. This is because a larger dataset requires more processing time for searches.
+
+To address this, you can classify data into appropriate tables or use agents with MCP or A2A to narrow down the search scope based on content.
+
+Specifically, consider the following approaches:
+
+1. **Data Classification**: Divide data into different tables by category to narrow the search scope. For example, store news articles, blog posts, and product reviews in separate tables.
+
+2. **Use of Indexes**: BigQuery allows you to create indexes on tables, which can speed up searches on specific columns. Setting indexes on frequently searched columns is especially effective.
+
+3. **Query Optimization**: Optimize your queries to reduce search time. For example, select only the necessary columns, add filtering conditions, or use subqueries to reduce the amount of data processed.
+
+4. **Partitioning**: Partition data by time or other criteria to reduce the amount of data searched. This allows you to search only the data that matches a specific period or condition.
+
+5. **Use of Agents**: Create agents using MCP (Multi-Cloud Platform) or A2A (Agent-to-Agent) to narrow the search scope based on specific content. This enables searching only the most relevant data for a user's query.
+
+6. **Caching**: Implement caching mechanisms to store frequently accessed data, reducing the need for repeated searches in BigQuery.
