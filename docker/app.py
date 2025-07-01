@@ -95,7 +95,7 @@ def _get_documents(link, start_tag='<main', end_tag='</main'):
     return {"docs": docs, "metadatas": metadatas}
 
 
-def delete_article(html_path):
+def _delete_article(html_path):
     client = bigquery.Client(project=PROJECT_ID)
     query = f"""
 DELETE FROM `project_id.db.table` WHERE JSON_VALUE(metadata.html_path)='{html_path}'
@@ -109,7 +109,7 @@ DELETE FROM `project_id.db.table` WHERE JSON_VALUE(metadata.html_path)='{html_pa
     return "データベースを更新中"
 
 
-def create_prompt(prompt, url):
+def _create_prompt(prompt, url):
 
     if url == "":
         must_prompt = f"""
@@ -175,15 +175,15 @@ def handle_mention(event, say):
     prompt = "".join(texts)
     if not urls:
         say("リンクがなかったため、データベースから検索します。", thread_ts=thread_id)
-        send_prompt = create_prompt(prompt, "")
+        send_prompt = _create_prompt(prompt, "")
     else:
         url = "".join(urls)
 
         html_path = url.split('/')[-1]
         if html_path == "":
             html_path = url.split('/')[-2]
-        send_prompt = create_prompt(prompt, url)
-        say(delete_article(html_path), thread_ts=thread_id)
+        send_prompt = _create_prompt(prompt, url)
+        say(_delete_article(html_path), thread_ts=thread_id)
 
         if url in 'サイト名':
             docs_and_metadata = _get_documents(url)

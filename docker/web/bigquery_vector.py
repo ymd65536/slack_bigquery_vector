@@ -9,7 +9,7 @@ use_embedding_model_name = os.environ.get("USE_MODEL_NAME", None)
 REGION = os.environ.get("REGION", "asia-northeast1")
 
 
-def get_VertexAIEmbeddings():
+def _get_VertexAIEmbeddings():
     return VertexAIEmbeddings(
         model_name=use_embedding_model_name, project=PROJECT_ID
     )
@@ -22,7 +22,7 @@ def get_bigquery_vector_store(DATASET, TABLE):
         _type_: BigQuery Vector Search オブジェクト
     """
 
-    embedding = get_VertexAIEmbeddings()
+    embedding = _get_VertexAIEmbeddings()
 
     store = BigQueryVectorSearch(
         project_id=PROJECT_ID,
