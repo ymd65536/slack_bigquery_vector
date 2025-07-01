@@ -44,15 +44,46 @@ gcloud auth application-default login
 
 This completes the setup. / The setup is now complete.
 
-## environment
+## environment variables
 
-Set the `PROJECT_ID` environment variable.
+Set the following environment variables in your terminal or in a `.env` file.
+
+```bash
+cp .env.example .env
+```
+
+You can edit the `.env` file to set your environment variables, or you can set them directly in your terminal.
+
+```text
+PROJECT_ID=your-project-id
+APP_ENVIRONMENT=development
+SLACK_BOT_TOKEN=your-slack-bot-token
+PORT=8080
+```
+
+## Install dependencies
+
+To run the Slack app, you need to install the required Python packages. You can do this by running the following command in your terminal:
+
+```bash
+pip install python-dotenv
+```
+
+### Google Cloud Project ID
+
+If you are not using a `.env` file in this project, set the following environment variables directly in your terminal before running the Slack app.
+If you are using a `.env` file, you can skip this step as the `PROJECT_ID` will be set automatically when you run the app.
+
+Set the `PROJECT_ID` environment variables.
 
 ```bash
 export PROJECT_ID=`gcloud config list --format 'value(core.project)'` && echo $PROJECT_ID
 ```
 
-## Set SlackApp Token
+### Set SlackApp Token
+
+If you are not using a `.env` file in this project, set the following environment variables directly in your terminal before running the Slack app.
+If you are using a `.env` file, you can skip this step as the Slack app tokens will be set automatically when you run the app.
 
 To run the Slack app, you need to set the following environment variables with your Slack app credentials. You can create a Slack app and obtain these tokens from the [Slack API: Applications](https://api.slack.com/apps) page.
 

@@ -1,5 +1,6 @@
 import datetime
 import os
+from dotenv import load_dotenv
 
 from google.cloud import bigquery
 
@@ -14,6 +15,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 from langchain_google_vertexai import VertexAI
 from langchain.chains import RetrievalQA
+
+load_dotenv()
 
 PROJECT_ID = os.environ.get("PROJECT_ID", "")
 APP_ENVIRONMENT = os.environ.get("APP_ENVIRONMENT", "")
